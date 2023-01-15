@@ -15,7 +15,7 @@
 			<span class="icon-bar"></span>
 		</button>
 		@endif
-		<a href="/" class="navbar-brand"><i class="fa fa-newspaper p-r-5"></i><b> SIMPEK RT</b></a>
+		<a href="/" class="navbar-brand"><i class="fa fa-newspaper p-r-5"></i><b> ISH-HRD</b></a>
 		@if ($headerMegaMenu)
 			<button type="button" class="navbar-toggle pt-0 pb-0 mr-0" data-toggle="collapse" data-target="#top-navbar">
 				<span class="fa-stack fa-lg text-inverse">
@@ -79,13 +79,13 @@
 		@endisset
 		<li class="dropdown navbar-user">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				{{-- <img src="/assets/img/user/user-13.jpg" alt="" />  --}}
-				<span class="d-none d-md-inline">{{ Auth::user()->nama_lengkap }} </span> <b class="fa fa-caret-down"></b>
+				<img src="/assets/img/user/user-13.jpg" alt="" /> 
+				<span class="d-none d-md-inline">{{ Auth::user()->full_name }} </span> <b class="fa fa-caret-down"></b>
 			</a>
 			<input type="hidden" class="roleuser" value="{{Auth::user()->role}}">
 			<div class="dropdown-menu dropdown-menu-right">
 				{{-- <a href="javascript:;" class="dropdown-item">Edit Profile</a> --}}
-				<a href="javascript:;" class="dropdown-item"><span class="badge badge-success">{{Auth::user()->nama_lengkap}}</span></a>
+				<a href="javascript:;" class="dropdown-item"><span class="badge badge-success">{{Auth::user()->full_name}}</span></a>
 				<a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">{{Auth::user()->role}}</span> Role</a>
 				<div class="dropdown-divider"></div>
 				<a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>

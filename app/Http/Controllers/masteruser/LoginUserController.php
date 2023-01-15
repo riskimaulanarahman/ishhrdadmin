@@ -37,27 +37,16 @@ class LoginUserController extends Controller
     {
 
         try {
-            $request->validate([
-                'id_rt' => 'required',
-            ]);
 
-            $checkuser = User::where('id_rt',$request->id_rt)->count();
-
-            if($checkuser==0) {
-                $data = User::create([
-                    'nama_lengkap' => $request->nama_lengkap,
+                User::create([
+                    'full_name' => $request->full_name,
                     'username' => $request->username,
                     'email' => $request->email,
                     'password' => bcrypt($request->password),
                     'role' => $request->role,
-                    'id_rt' => $request->id_rt,
-                    'nomor_hp' => $request->nomor_hp,
+                    'nip' => $request->nip,
                 ]);
                 return response()->json(["status" => "success", "message" => "Berhasil Menambahkan Data"]);
-            } else {
-                return response()->json(["status" => "error", "message" => "RT Sudah Ada"]);
-            }
-
 
         } catch (\Exception $e){
 
@@ -110,11 +99,11 @@ class LoginUserController extends Controller
         try {
             $data = User::findOrFail($id);
 
-            if($data->role == 'admin') {
-                return response()->json(["status" => "error", "message" => "Admin Tidak Bisa Dihapus"]);
-            } else {
+            // if($data->role == 'admin') {
+            //     return response()->json(["status" => "error", "message" => "Admin Tidak Bisa Dihapus"]);
+            // } else {
                 $data->delete();
-            }
+            // }
 
             return response()->json(["status" => "success", "message" => "Berhasil Hapus Data"]);
 

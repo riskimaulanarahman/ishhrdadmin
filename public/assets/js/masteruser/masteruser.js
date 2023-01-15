@@ -22,7 +22,7 @@
 		});
     }
 
-    RoleType = [{id:1,roletype:"operator"}];
+    RoleType = [{id:1,roletype:"user"},{id:2,roletype:"admin"}];
     // attribute
     var dataGrid = $("#master-user").dxDataGrid({    
         dataSource: store,
@@ -62,22 +62,19 @@
                     colSpan: 2,
                     items: [
                         {
-                            dataField: "nama_lengkap",
+                            dataField: "full_name",
+                            caption: "Nama Lengkap",
                         },
                         {
-                            dataField: "nomor_hp",
-                        },
-                        {
-                            dataField: "id_rt",
-                        },
-                        
+                            dataField: "nip",
+                        },                        
                     ]
                 }, {
                     itemType: "group",
                     colCount: 2,
                     colSpan: 2,
                     caption: "Login Info",
-                    items: ["role","email", "username","password"]
+                    items: ["role","email", "username","password","device_id"]
                 }]
             }
         },
@@ -96,8 +93,15 @@
                 }
             },
             { 
-                dataField: "nama_lengkap",
-                caption: "nama lengkap",
+                dataField: "nip",
+                caption: "NIP",
+                validationRules: [
+                    { type: "required" }
+                ]
+            },
+            { 
+                dataField: "full_name",
+                caption: "Nama Lengkap",
                 validationRules: [
                     { type: "required" }
                 ]
@@ -137,18 +141,18 @@
                     displayExpr: 'roletype',
                 },
             },
-            { 
-                dataField: "id_rt",
-                editorType: "dxSelectBox",
-                // validationRules: [
-                //     { type: "required" }
-                // ],
-                lookup: {
-                    dataSource: listRT,  
-                    valueExpr: 'id',
-                    displayExpr: 'nomor_rt',
-                },
-            },   
+            {
+                dataField: "device_id"
+            }
+            // { 
+            //     dataField: "id_rt",
+            //     editorType: "dxSelectBox",
+            //     lookup: {
+            //         dataSource: listRT,  
+            //         valueExpr: 'id',
+            //         displayExpr: 'nomor_rt',
+            //     },
+            // },   
             // { 
             //     dataField: "jabatan",
             //     editorType: "dxSelectBox",
@@ -161,13 +165,7 @@
             //         displayExpr: 'nama_jabatan',
             //     },
             // },
-            { 
-                dataField: "nomor_hp",
-                caption: "nomor hp",
-                validationRules: [
-                    { type: "required" }
-                ]
-            },
+            
             
            
         ],

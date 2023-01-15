@@ -19,35 +19,15 @@ return [
             'url' => '/',
             'route-name' => 'admin.index'
         ],[
-                'icon' => 'fa fa-folder',
-                'title' => 'Master Data',
-                'url' => 'javascript:;',
-                'caret' => true,
-                'sub_menu' => [
-                    [
-                        'url' => '/kegiatan-laporanrt',
-                        'title' => 'Kinerja Ketua RT',
-                        'route-name' => 'admin.kegiatan-laporanrt'
-                    ],
-                    [
-                        'url' => 'javascript:;',
-                        'title' => 'Kematian Warga'
-                    ],
-                    [
-                        'url' => 'javascript:;',
-                        'title' => 'Demografi RT'
-                    ],
-                ]
-        ],[
             'icon' => 'fa fa-folder',
             'title' => 'Table Refrensi',
             'url' => 'javascript:;',
             'caret' => true,
             'sub_menu' => [
                 [
-                    'url' => '/kegiatan-rt',
-                    'title' => 'Daftar Kegiatan RT',
-                    'route-name' => 'admin.kegiatan-rt'
+                    'url' => '/department',
+                    'title' => 'Department',
+                    'route-name' => 'admin.department'
                 ],
             ]
         ],[
@@ -55,23 +35,6 @@ return [
             'title' => 'Kelola User',
             'url' => '/master-user',
             'route-name' => 'admin.masteruser'
-        ],[
-            'icon' => 'fa fa-hdd',
-            'title' => 'Kelola Sistem',
-            'url' => 'javascript:;',
-            'caret' => true,
-            'sub_menu' => [
-                [
-                    'url' => 'javascript:;',
-                    'title' => 'Inisialisasi Kelurahan'
-                ],[
-                    'url' => 'javascript:;',
-                    'title' => 'Pemeliharaan Data'
-                ]]
-        ],[
-            'icon' => 'fa fa-question-circle',
-            'title' => 'Bantuan',
-            'url' => '/bantuan',
         ]
     ]
 ];
