@@ -67,6 +67,9 @@
                         },
                         {
                             dataField: "nip",
+                        },
+                        {
+                            dataField: "department",
                         },                        
                     ]
                 }, {
@@ -107,6 +110,15 @@
                 ]
             },
             { 
+                dataField: "department",
+                editorType: "dxSelectBox",
+                lookup: {
+                    dataSource: listDepartment,  
+                    valueExpr: 'id',
+                    displayExpr: 'name',
+                },
+            }, 
+            { 
                 dataField: "username",
                 validationRules: [
                     { type: "required" }
@@ -122,9 +134,9 @@
                     { 
                         type: "email" 
                     },
-                    { 
-                        type: "required" 
-                    }
+                    // { 
+                    //     type: "required" 
+                    // }
                 ]
             },
             { 
@@ -143,16 +155,8 @@
             },
             {
                 dataField: "device_id"
-            }
-            // { 
-            //     dataField: "id_rt",
-            //     editorType: "dxSelectBox",
-            //     lookup: {
-            //         dataSource: listRT,  
-            //         valueExpr: 'id',
-            //         displayExpr: 'nomor_rt',
-            //     },
-            // },   
+            },
+             
             // { 
             //     dataField: "jabatan",
             //     editorType: "dxSelectBox",

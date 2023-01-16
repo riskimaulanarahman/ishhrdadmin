@@ -69,16 +69,16 @@
         sort: "nama_kelurahan"
     }
 
-    // listRT = {
-    //     store: new DevExpress.data.CustomStore({
-    //         key: "id",
-    //         loadMode: "raw",
-    //         load: function() {
-    //             return $.get(apiurl + "/list-rt");
-    //         }
-    //     }),
-    //     sort: "id"
-    // }
+    listDepartment = {
+        store: new DevExpress.data.CustomStore({
+            key: "id",
+            loadMode: "raw",
+            load: function() {
+                return $.get(apiurl + "/list-department");
+            }
+        }),
+        sort: "id"
+    }
 
     listKegiatan = {
         store: new DevExpress.data.CustomStore({

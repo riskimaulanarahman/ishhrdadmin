@@ -25,4 +25,8 @@ class ListController extends Controller
         return DB::table('rt')->select('id','nomor_rt')->get();
     }
 
+    public function listDepartment() {
+        return DB::table('department')->select('id','name')->get();
+    }
+
 }

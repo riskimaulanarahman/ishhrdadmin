@@ -20,14 +20,19 @@ return [
             'route-name' => 'admin.index'
         ],[
             'icon' => 'fa fa-folder',
-            'title' => 'Table Refrensi',
+            'title' => 'Master Data',
             'url' => 'javascript:;',
             'caret' => true,
             'sub_menu' => [
                 [
-                    'url' => '/department',
+                    'url' => '/ref-department',
                     'title' => 'Department',
-                    'route-name' => 'admin.department'
+                    'route-name' => 'admin.refdepartment'
+                ],
+                [
+                    'url' => '/ref-session',
+                    'title' => 'Session Time',
+                    'route-name' => 'admin.refsessiontime'
                 ],
             ]
         ],[
