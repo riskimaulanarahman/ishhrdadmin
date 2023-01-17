@@ -19,13 +19,14 @@ class HomeController extends Controller
             
             return view('dashboard-admin');
 
-        } elseif(Auth::user()->role == 'supervisor') {
+        } 
+        // elseif(Auth::user()->role == 'supervisor') {
 
-            return view('dashboard-supervisor');
+        //     return view('dashboard-supervisor');
 
-        } elseif(Auth::user()->role == 'operator') {
-            return view('dashboard-operator');
-        }
+        // } elseif(Auth::user()->role == 'operator') {
+        //     return view('dashboard-operator');
+        // }
 
     }
 }

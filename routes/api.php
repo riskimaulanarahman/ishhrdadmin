@@ -21,5 +21,7 @@ Route::apiResource('/master-user', 'masteruser\LoginUserController');
 Route::apiResource('/ref-department', 'referensi\DepartmentController');
 Route::apiResource('/ref-session', 'referensi\SessiontimeController');
 
+Route::get('/getsummary', 'SummaryController@index')->name('summary');
+
 //list
 Route::get('list-department', 'API\ListController@listDepartment');

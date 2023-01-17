@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\KegiatanLaporan;
+use DB;
 
-class BerkasController extends Controller
+use App\Summary;
+
+class SummaryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,18 @@ class BerkasController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $data = DB::select("select 
+            *,
+            case when present_on_time = 1 then 'On time' when present_late = 1 then 'Late' when not_present = 1 then 'Not present' end as stat,
+            1 as jml
+            from user_attendance");
+
+            return response()->json($data);
+            
+        } catch (\Exception $e) {
+            return response()->json(["status" => "error", "message" => $e->getMessage()]);
+        }
     }
 
     /**
@@ -23,7 +37,7 @@ class BerkasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $module)
+    public function store(Request $request)
     {
         //
     }
@@ -34,7 +48,7 @@ class BerkasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
     }
@@ -46,24 +60,9 @@ class BerkasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        try {
-
-            // if($file = $request->hasFile('file')) {
-                $module = "kegiatanrt";
-                $file = $request->file('myFile');
-                $nama_file = $module."_".time()."_".$file->getClientOriginalName();
-                $tujuan_upload = 'upload';
-                $file->move($tujuan_upload,$nama_file);
-            
-                return $nama_file;
-            // }
-        } catch (\Exception $e){
-
-            return response()->json(["status" => "error", "message" => $e->getMessage()]);
-        }
- 
+        //
     }
 
     /**
