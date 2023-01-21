@@ -60,7 +60,7 @@ var dataGrid = $("#ref-session").dxDataGrid({
     editing: {
         useIcons:true,
         mode: "cell",
-        allowAdding: true,
+        allowAdding: false,
         allowUpdating: true,
         allowDeleting: false,
     },
